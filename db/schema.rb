@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_01_21_171844) do
+ActiveRecord::Schema[7.2].define(version: 2025_01_21_182419) do
   create_table "stocks", force: :cascade do |t|
     t.string "stock_name"
     t.integer "stock_price"
@@ -29,6 +29,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_21_171844) do
     t.integer "stocks_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "stock_price"
     t.index ["stocks_id"], name: "index_transactions_on_stocks_id"
     t.index ["user_details_id"], name: "index_transactions_on_user_details_id"
   end

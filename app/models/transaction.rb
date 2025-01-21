@@ -6,4 +6,5 @@ class Transaction < ApplicationRecord
     validates :quantity, presence: true
     validates :user_details, presence: true
     validates :stocks, presence: true
+    validates :stock_price, presence: true
 end
