@@ -1,4 +1,4 @@
-class Transaction < ApplicationRecord
+class TransactionDetail < ApplicationRecord
     validates :brokerage, presence: true
     validates :gst, presence: true
     validates :transaction_value, presence: true
@@ -7,4 +7,7 @@ class Transaction < ApplicationRecord
     validates :user_details, presence: true
     validates :stocks, presence: true
     validates :stock_price, presence: true
+
+    belongs_to :user_detail
+    belongs_to :stock
 end

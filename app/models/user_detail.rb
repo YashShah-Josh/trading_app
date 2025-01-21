@@ -8,4 +8,6 @@ class UserDetail < ApplicationRecord
     validates :upi_id, presence: true, uniqueness: true
     validates :aadhar_card_number, presence: true, uniqueness: true
     validates :pan_card_number, presence: true, uniqueness: true
+
+    has_many :transaction_details
 end
