@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_01_21_200047) do
+ActiveRecord::Schema[7.2].define(version: 2025_01_21_195457) do
   create_table "stocks", force: :cascade do |t|
     t.string "stock_name"
     t.integer "stock_price"
@@ -25,12 +25,13 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_21_200047) do
     t.float "transaction_value"
     t.string "transaction_type"
     t.integer "quantity"
-    t.integer "user_details_id", null: false
-    t.integer "stocks_id", null: false
+    t.float "stock_price"
+    t.integer "user_detail_id", null: false
+    t.integer "stock_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["stocks_id"], name: "index_transaction_details_on_stocks_id"
-    t.index ["user_details_id"], name: "index_transaction_details_on_user_details_id"
+    t.index ["stock_id"], name: "index_transaction_details_on_stock_id"
+    t.index ["user_detail_id"], name: "index_transaction_details_on_user_detail_id"
   end
 
   create_table "user_details", force: :cascade do |t|
@@ -47,6 +48,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_21_200047) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "transaction_details", "stocks", column: "stocks_id"
-  add_foreign_key "transaction_details", "user_details", column: "user_details_id"
+  add_foreign_key "transaction_details", "stocks"
+  add_foreign_key "transaction_details", "user_details"
 end

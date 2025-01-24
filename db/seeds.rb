@@ -7,11 +7,11 @@
 # #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 # #     MovieGenre.find_or_create_by!(name: genre_name)
 # #   end
-UserDetail.destroy_all
-Stock.destroy_all
 # TransactionDetail.destroy_all
+# UserDetail.destroy_all
+# Stock.destroy_all
 
-UserDetail.create!([
+user_detail = UserDetail.find_or_create_by!([
   { aadhar_card_number: 789701234567, pan_card_number: 'ZXYZN6789D', name: 'Amit Yadav', mobile_number: '9876543239', email: 'amityadav@example.com', address: '2727, Near Lake, Hyderabad, Telangana, India', bank_account_number: 7897012345672119, ifsc_code: 'AXIS0007910', upi_id: 'amityadav@upi' },
   { aadhar_card_number: 890701234567, pan_card_number: 'WXYZA7890E', name: 'Praveen Kumar', mobile_number: '9876543240', email: 'praveenkumar@example.com', address: '2828, IT Park, Pune, Maharashtra, India', bank_account_number: 8907012345672120, ifsc_code: 'ICIC0007911', upi_id: 'praveenkumar@upi' },
   { aadhar_card_number: 901701234567, pan_card_number: 'LMNOP8901F', name: 'Gautam Sen', mobile_number: '9876543241', email: 'gautamsen@example.com', address: '2929, Forest Lane, Kochi, Kerala, India', bank_account_number: 9017012345672121, ifsc_code: 'HDFC0007912', upi_id: 'gautamsen@upi' },
@@ -48,7 +48,7 @@ UserDetail.create!([
   { aadhar_card_number: 567100234567, pan_card_number: 'PQRST9012K', name: 'Priya Sharma', mobile_number: '9876543272', email: 'priyasharma@example.com', address: '6060, MG Road, Gurgaon, India', bank_account_number: 5671002345672152, ifsc_code: 'ICIC0007943', upi_id: 'priyasharma@upi' }
 ])
 
-Stock.create!([
+stock = Stock.find_or_create_by!([
   { stock_name: 'Reliance Industries', stock_price: 2150, quantity_available: 5000 },
   { stock_name: 'Tata Consultancy Services', stock_price: 3575, quantity_available: 4000 },
   { stock_name: 'HDFC Bank', stock_price: 1550, quantity_available: 6000 },
@@ -86,38 +86,38 @@ Stock.create!([
   { stock_name: 'Nestle India', stock_price: 18500, quantity_available: 2000 }
 ])
 
-# Transaction.create!([
-#   { brokerage: 30.50, gst: 18.5, transaction_value: 215050, transaction_type: 'Buy', quantity: 100, user_details_id: 1, stocks_id: 1, stock_price: 2150 },
-#   { brokerage: 32.00, gst: 19.0, transaction_value: 143200, transaction_type: 'Buy', quantity: 80, user_details_id: 2, stocks_id: 2, stock_price: 1790 },
-#   { brokerage: 40.75, gst: 22.0, transaction_value: 108000, transaction_type: 'Sell', quantity: 60, user_details_id: 3, stocks_id: 3, stock_price: 1800 },
-#   { brokerage: 35.25, gst: 20.0, transaction_value: 102000, transaction_type: 'Buy', quantity: 50, user_details_id: 4, stocks_id: 4, stock_price: 2040 },
-#   { brokerage: 50.00, gst: 25.0, transaction_value: 152500, transaction_type: 'Sell', quantity: 70, user_details_id: 5, stocks_id: 5, stock_price: 2185 },
-#   { brokerage: 40.00, gst: 20.5, transaction_value: 152000, transaction_type: 'Buy', quantity: 80, user_details_id: 6, stocks_id: 6, stock_price: 1900 },
-#   { brokerage: 30.00, gst: 19.0, transaction_value: 127500, transaction_type: 'Sell', quantity: 75, user_details_id: 7, stocks_id: 7, stock_price: 1700 },
-#   { brokerage: 42.00, gst: 21.5, transaction_value: 88000, transaction_type: 'Buy', quantity: 40, user_details_id: 8, stocks_id: 8, stock_price: 2200 },
-#   { brokerage: 45.00, gst: 22.0, transaction_value: 193000, transaction_type: 'Buy', quantity: 100, user_details_id: 9, stocks_id: 9, stock_price: 1930 },
-#   { brokerage: 36.00, gst: 19.0, transaction_value: 189600, transaction_type: 'Sell', quantity: 80, user_details_id: 10, stocks_id: 10, stock_price: 2370 },
-#   { brokerage: 40.50, gst: 20.5, transaction_value: 116000, transaction_type: 'Buy', quantity: 50, user_details_id: 11, stocks_id: 11, stock_price: 2320 },
-#   { brokerage: 33.00, gst: 19.5, transaction_value: 110500, transaction_type: 'Sell', quantity: 65, user_details_id: 12, stocks_id: 12, stock_price: 1700 },
-#   { brokerage: 50.00, gst: 25.0, transaction_value: 160000, transaction_type: 'Buy', quantity: 80, user_details_id: 13, stocks_id: 13, stock_price: 2000 },
-#   { brokerage: 45.50, gst: 22.0, transaction_value: 128500, transaction_type: 'Sell', quantity: 60, user_details_id: 14, stocks_id: 14, stock_price: 2025 },
-#   { brokerage: 37.50, gst: 20.0, transaction_value: 105000, transaction_type: 'Buy', quantity: 60, user_details_id: 15, stocks_id: 15, stock_price: 1750 },
-#   { brokerage: 50.00, gst: 25.0, transaction_value: 205000, transaction_type: 'Buy', quantity: 100, user_details_id: 16, stocks_id: 16, stock_price: 2050 },
-#   { brokerage: 39.00, gst: 21.0, transaction_value: 230000, transaction_type: 'Sell', quantity: 90, user_details_id: 17, stocks_id: 17, stock_price: 2550 },
-#   { brokerage: 38.00, gst: 20.5, transaction_value: 200500, transaction_type: 'Buy', quantity: 80, user_details_id: 18, stocks_id: 18, stock_price: 2500 },
-#   { brokerage: 42.50, gst: 21.5, transaction_value: 178000, transaction_type: 'Buy', quantity: 70, user_details_id: 19, stocks_id: 19, stock_price: 2550 },
-#   { brokerage: 33.50, gst: 19.5, transaction_value: 140000, transaction_type: 'Sell', quantity: 50, user_details_id: 20, stocks_id: 20, stock_price: 2800 },
-#   { brokerage: 50.00, gst: 25.0, transaction_value: 208000, transaction_type: 'Buy', quantity: 90, user_details_id: 21, stocks_id: 21, stock_price: 2300 },
-#   { brokerage: 36.00, gst: 20.0, transaction_value: 102400, transaction_type: 'Sell', quantity: 60, user_details_id: 22, stocks_id: 22, stock_price: 2400 },
-#   { brokerage: 34.50, gst: 19.5, transaction_value: 120000, transaction_type: 'Buy', quantity: 80, user_details_id: 23, stocks_id: 23, stock_price: 3000 },
-#   { brokerage: 40.00, gst: 20.5, transaction_value: 250000, transaction_type: 'Sell', quantity: 100, user_details_id: 24, stocks_id: 24, stock_price: 2500 },
-#   { brokerage: 32.50, gst: 20.0, transaction_value: 190000, transaction_type: 'Buy', quantity: 75, user_details_id: 25, stocks_id: 25, stock_price: 2200 },
-#   { brokerage: 50.00, gst: 25.0, transaction_value: 179000, transaction_type: 'Sell', quantity: 85, user_details_id: 26, stocks_id: 26, stock_price: 2200 },
-#   { brokerage: 42.00, gst: 22.0, transaction_value: 175000, transaction_type: 'Buy', quantity: 70, user_details_id: 27, stocks_id: 27, stock_price: 2500 },
-#   { brokerage: 44.50, gst: 23.0, transaction_value: 186000, transaction_type: 'Sell', quantity: 90, user_details_id: 28, stocks_id: 28, stock_price: 2300 },
-#   { brokerage: 37.50, gst: 20.5, transaction_value: 205500, transaction_type: 'Buy', quantity: 80, user_details_id: 29, stocks_id: 29, stock_price: 2200 },
-#   { brokerage: 48.00, gst: 24.0, transaction_value: 158000, transaction_type: 'Sell', quantity: 60, user_details_id: 30, stocks_id: 30, stock_price: 2500 }
-# ])
+transaction_detail = TransactionDetail.find_or_create_by!([
+  { brokerage: 30.50, gst: 18.5, transaction_value: 215050, transaction_type: 'Buy', quantity: 100, user_detail_id: 1, stock_id: 1, stock_price: 2150 },
+  { brokerage: 32.00, gst: 19.0, transaction_value: 143200, transaction_type: 'Buy', quantity: 80, user_detail_id: 2, stock_id: 2, stock_price: 1790 },
+  { brokerage: 40.75, gst: 22.0, transaction_value: 108000, transaction_type: 'Sell', quantity: 60, user_detail_id: 3, stock_id: 3, stock_price: 1800 },
+  { brokerage: 35.25, gst: 20.0, transaction_value: 102000, transaction_type: 'Buy', quantity: 50, user_detail_id: 4, stock_id: 4, stock_price: 2040 },
+  { brokerage: 50.00, gst: 25.0, transaction_value: 152500, transaction_type: 'Sell', quantity: 70, user_detail_id: 5, stock_id: 5, stock_price: 2185 },
+  { brokerage: 40.00, gst: 20.5, transaction_value: 152000, transaction_type: 'Buy', quantity: 80, user_detail_id: 6, stock_id: 6, stock_price: 1900 },
+  { brokerage: 30.00, gst: 19.0, transaction_value: 127500, transaction_type: 'Sell', quantity: 75, user_detail_id: 7, stock_id: 7, stock_price: 1700 },
+  { brokerage: 42.00, gst: 21.5, transaction_value: 88000, transaction_type: 'Buy', quantity: 40, user_detail_id: 8, stock_id: 8, stock_price: 2200 },
+  { brokerage: 45.00, gst: 22.0, transaction_value: 193000, transaction_type: 'Buy', quantity: 100, user_detail_id: 9, stock_id: 9, stock_price: 1930 },
+  { brokerage: 36.00, gst: 19.0, transaction_value: 189600, transaction_type: 'Sell', quantity: 80, user_detail_id: 10, stock_id: 10, stock_price: 2370 },
+  { brokerage: 40.50, gst: 20.5, transaction_value: 116000, transaction_type: 'Buy', quantity: 50, user_detail_id: 11, stock_id: 11, stock_price: 2320 },
+  { brokerage: 33.00, gst: 19.5, transaction_value: 110500, transaction_type: 'Sell', quantity: 65, user_detail_id: 12, stock_id: 12, stock_price: 1700 },
+  { brokerage: 50.00, gst: 25.0, transaction_value: 160000, transaction_type: 'Buy', quantity: 80, user_detail_id: 13, stock_id: 13, stock_price: 2000 },
+  { brokerage: 45.50, gst: 22.0, transaction_value: 128500, transaction_type: 'Sell', quantity: 60, user_detail_id: 14, stock_id: 14, stock_price: 2025 },
+  { brokerage: 37.50, gst: 20.0, transaction_value: 105000, transaction_type: 'Buy', quantity: 60, user_detail_id: 15, stock_id: 15, stock_price: 1750 },
+  { brokerage: 50.00, gst: 25.0, transaction_value: 205000, transaction_type: 'Buy', quantity: 100, user_detail_id: 16, stock_id: 16, stock_price: 2050 },
+  { brokerage: 39.00, gst: 21.0, transaction_value: 230000, transaction_type: 'Sell', quantity: 90, user_detail_id: 17, stock_id: 17, stock_price: 2550 },
+  { brokerage: 38.00, gst: 20.5, transaction_value: 200500, transaction_type: 'Buy', quantity: 80, user_detail_id: 18, stock_id: 18, stock_price: 2500 },
+  { brokerage: 42.50, gst: 21.5, transaction_value: 178000, transaction_type: 'Buy', quantity: 70, user_detail_id: 19, stock_id: 19, stock_price: 2550 },
+  { brokerage: 33.50, gst: 19.5, transaction_value: 140000, transaction_type: 'Sell', quantity: 50, user_detail_id: 20, stock_id: 20, stock_price: 2800 },
+  { brokerage: 50.00, gst: 25.0, transaction_value: 208000, transaction_type: 'Buy', quantity: 90, user_detail_id: 21, stock_id: 21, stock_price: 2300 },
+  { brokerage: 36.00, gst: 20.0, transaction_value: 102400, transaction_type: 'Sell', quantity: 60, user_detail_id: 22, stock_id: 22, stock_price: 2400 },
+  { brokerage: 34.50, gst: 19.5, transaction_value: 120000, transaction_type: 'Buy', quantity: 80, user_detail_id: 23, stock_id: 23, stock_price: 3000 },
+  { brokerage: 40.00, gst: 20.5, transaction_value: 250000, transaction_type: 'Sell', quantity: 100, user_detail_id: 24, stock_id: 24, stock_price: 2500 },
+  { brokerage: 32.50, gst: 20.0, transaction_value: 190000, transaction_type: 'Buy', quantity: 75, user_detail_id: 25, stock_id: 25, stock_price: 2200 },
+  { brokerage: 50.00, gst: 25.0, transaction_value: 179000, transaction_type: 'Sell', quantity: 85, user_detail_id: 26, stock_id: 26, stock_price: 2200 },
+  { brokerage: 42.00, gst: 22.0, transaction_value: 175000, transaction_type: 'Buy', quantity: 70, user_detail_id: 27, stock_id: 27, stock_price: 2500 },
+  { brokerage: 44.50, gst: 23.0, transaction_value: 186000, transaction_type: 'Sell', quantity: 90, user_detail_id: 28, stock_id: 28, stock_price: 2300 },
+  { brokerage: 37.50, gst: 20.5, transaction_value: 205500, transaction_type: 'Buy', quantity: 80, user_detail_id: 29, stock_id: 29, stock_price: 2200 },
+  { brokerage: 48.00, gst: 24.0, transaction_value: 158000, transaction_type: 'Sell', quantity: 60, user_detail_id: 30, stock_id: 30, stock_price: 2500 }
+])
 # Create a Stock entry
 # stock = Stock.create!(
 #   stock_name: "ABC Corporation",
@@ -139,16 +139,16 @@ Stock.create!([
 # )
 
 # Create a Transaction entry
-transaction = TransactionDetail.create!(
-  brokerage: 50.0,
-  gst: 18.0,
-  transaction_value: 568.0, # Example: 1 stock purchased for 500 + 50 brokerage + 18 GST
-  transaction_type: "buy", # or "sell"
-  quantity: 1,
+# a = transaction = TransactionDetail.create!(
+#   brokerage: 50.0,
+#   gst: 18.0,
+#   transaction_value: 568.0, # Example: 1 stock purchased for 500 + 50 brokerage + 18 GST
+#   transaction_type: "buy", # or "sell"
+#   quantity: 1,
 #   stock_price: 500,
-  user_details_id: 1,
-  stocks_id: 2
-)
-
+#   user_detail_id: user_detail.last.id,
+#   stock_id: 2
+# )
+# debugger
 # Now you can access the associated user_detail like this:
-# puts transaction.user_detail.name  # This should print "John Doe"
+puts transaction_detail.last  # This should print "John Doe"
