@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_01_21_195457) do
+ActiveRecord::Schema[7.2].define(version: 2025_01_23_104033) do
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.integer "publication_year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "stocks", force: :cascade do |t|
     t.string "stock_name"
     t.integer "stock_price"
